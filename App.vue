@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import header from "../components/header";
-import tabs from "../components/tabs";
-import skills from "../components/skills";
+import header from "./components/header";
+import tabs from "./components/tabs";
+import skills from "./components/skills";
 
-import { mapActions } from "vuex";
+import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
   components: {
@@ -22,7 +22,6 @@ export default {
     skills
   },
   created() {
-    console.log(this.getUserInfo);
     this.getUserInfo();
   },
   methods: {
@@ -65,6 +64,6 @@ ul {
 .content {
   flex: 1;
   padding: 20px;
-  /* background: url("back.png"); */
+  background: url("back.png");
 }
 </style>

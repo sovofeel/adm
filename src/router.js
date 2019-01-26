@@ -1,24 +1,63 @@
 import Vue from "vue";
-import Router from "vue-router";
-import Home from "./views/Home.vue";
+import VueRouter from "vue-router";
+import axios from "axios";
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
-export default new Router({
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: Home
-    },
-    {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
-    }
-  ]
+const guard = axios.create({
+  baseURL: "https://webdev-api.loftschool.com/"
 });
+
+import skills from "../components/skills.vue";
+import header from "../components/header.vue";
+import tabs from "../components/tabs.vue";
+import works from "../components/works.vue";
+import posts from "../components/posts.vue";
+
+const routes = [
+  {
+    path: "/",
+    components: {
+      default: skills,
+      header: header,
+      tabs: tabs
+    }
+  },
+  {
+    path: "/works",
+    components: {
+      default: works,
+      header: header,
+      tabs: tabs
+    }
+  },
+  {
+    path: "/blog",
+    components: {
+      default: posts,
+      header: header,
+      tabs: tabs
+    }
+  }
+];
+
+const router = new VueRouter({ routes, mode: "history" });
+
+router.beforeEach((to, from, next) => {
+
+  guard
+    .get("/user", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    })
+    .then(response => {
+
+      next();
+    })
+    .catch(error => {
+      localStorage.removeItem("token");
+    });
+});
+
+export default router;
