@@ -9,24 +9,18 @@
 </template>
 
 <script>
-import header from "../components/header";
-import tabs from "../components/tabs";
-import skills from "../components/skills";
-
+import header from "./components/header";
+import login from "./components/login";
+import tabs from "./components/tabs";
+import skills from "./components/skills";
 import { mapActions } from "vuex";
 
 export default {
   components: {
     appHeader: header,
     tabs,
-    skills
-  },
-  created() {
-    console.log(this.getUserInfo);
-    this.getUserInfo();
-  },
-  methods: {
-    ...mapActions(["getUserInfo"])
+    skills,
+    login
   }
 };
 </script>

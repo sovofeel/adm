@@ -8,29 +8,29 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
       post: {
-        title: '',
-        date: '',
-        content: ''
+        title: "",
+        date: "",
+        content: ""
       }
-    }
+    };
   },
   methods: {
-    ...mapActions(['addPost']),
+    ...mapActions(["addPost"]),
     addNewPost() {
-      const formData = new FormData()
+      const formData = new FormData();
 
       Object.keys(this.post).forEach(prop => {
-        formData.append(prop, this.post[prop])
-      })
-      this.addPost(formData)
+        formData.append(prop, this.post[prop]);
+      });
+      this.addPost(formData);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -52,7 +52,7 @@ button {
   border: none;
   border-radius: 5px;
   color: #fff;
-  font-family: 'Roboto', Helvetica, sans-serif;
+  font-family: "Roboto", Helvetica, sans-serif;
   margin-top: 20px;
   &:hover {
     cursor: pointer;

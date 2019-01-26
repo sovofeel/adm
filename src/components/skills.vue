@@ -9,7 +9,6 @@
     )
 </template>
 
-
 <script>
 import skillsRow from "./skillsRow";
 import { mapState, mapActions, mapGetters } from "vuex";

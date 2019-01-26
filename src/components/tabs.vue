@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       tabs: [
+        { title: "Войти", href: "/login" },
         { title: "Обо мне", href: "/" },
         { title: "Мои работы", href: "/works" },
         { title: "Блог", href: "/blog" }
@@ -20,7 +21,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="scss" scoped>
 #tabs {

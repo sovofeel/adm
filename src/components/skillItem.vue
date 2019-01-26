@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   props: {
@@ -37,25 +37,25 @@ export default {
   data() {
     return {
       newSkill: {
-        title: '',
-        percents: '',
+        title: "",
+        percents: "",
         category: this.typeId
       }
-    }
+    };
   },
   computed: {
-    ...mapGetters(['userId'])
+    ...mapGetters(["userId"])
   },
   methods: {
-    ...mapActions(['addNewSkill', 'removeExistedSkill']),
+    ...mapActions(["addNewSkill", "removeExistedSkill"]),
     addSkill() {
-      this.addNewSkill(this.newSkill)
+      this.addNewSkill(this.newSkill);
     },
     removeItem() {
-      this.removeExistedSkill(this.skill.id)
+      this.removeExistedSkill(this.skill.id);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -70,7 +70,7 @@ button {
   border: none;
   border-radius: 5px;
   color: #fff;
-  font-family: 'Roboto', Helvetica, sans-serif;
+  font-family: "Roboto", Helvetica, sans-serif;
   &:hover {
     cursor: pointer;
   }

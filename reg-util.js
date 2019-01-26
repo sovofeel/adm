@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 const request = require("request");
 const signale = require("signale");
 const promptly = require("promptly");

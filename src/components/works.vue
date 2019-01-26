@@ -9,36 +9,36 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
       work: {
-        title: '',
-        techs: '',
-        link: '',
-        photo: ''
+        title: "",
+        techs: "",
+        link: "",
+        photo: ""
       }
-    }
+    };
   },
   methods: {
-    ...mapActions(['addWork']),
+    ...mapActions(["addWork"]),
     addPhoto(e) {
-      const files = e.target.files
-      if (files.length === 0) return
+      const files = e.target.files;
+      if (files.length === 0) return;
 
-      this.work.photo = files[0]
+      this.work.photo = files[0];
     },
     addNewWork() {
-      const formData = new FormData()
+      const formData = new FormData();
 
       Object.keys(this.work).forEach(prop => {
-        formData.append(prop, this.work[prop])
-      })
-      this.addWork(formData)
+        formData.append(prop, this.work[prop]);
+      });
+      this.addWork(formData);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -60,7 +60,7 @@ button {
   border: none;
   border-radius: 5px;
   color: #fff;
-  font-family: 'Roboto', Helvetica, sans-serif;
+  font-family: "Roboto", Helvetica, sans-serif;
   margin-top: 20px;
   &:hover {
     cursor: pointer;

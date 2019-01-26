@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import skillItem from './skillItem'
+import skillItem from "./skillItem";
 
 export default {
   components: {
@@ -39,14 +39,14 @@ export default {
   methods: {
     fromNameToNum(name) {
       switch (name) {
-        case 'Frontend':
-          return 0
-        case 'Backend':
-          return 1
-        case 'Workflow':
-          return 2
+        case "Frontend":
+          return 0;
+        case "Backend":
+          return 1;
+        case "Workflow":
+          return 2;
       }
     }
   }
-}
+};
 </script>
