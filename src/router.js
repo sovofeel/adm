@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import axios from "axios";
+import store from '../store'
 
 Vue.use(VueRouter);
 
@@ -52,7 +53,7 @@ router.beforeEach((to, from, next) => {
       }
     })
     .then(response => {
-
+      store.commit('updateUserId', response.data.user.id)
       next();
     })
     .catch(error => {

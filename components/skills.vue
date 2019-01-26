@@ -11,8 +11,8 @@
 
 
 <script>
-import skillsRow from './skillsRow'
-import { mapState, mapActions, mapGetters } from 'vuex'
+import skillsRow from "./skillsRow";
+import { mapState, mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
@@ -21,28 +21,28 @@ export default {
   data() {
     return {
       types: [
-        { id: 0, name: 'Frontend' },
-        { id: 1, name: 'Backend' },
-        { id: 2, name: 'Workflow' }
+        { id: 0, name: "Frontend" },
+        { id: 1, name: "Backend" },
+        { id: 2, name: "Workflow" }
       ]
-    }
+    };
   },
   computed: {
     ...mapState({
       skills: state => state.skills.data
     }),
-    ...mapGetters(['userId'])
+    ...mapGetters(["userId"])
   },
   watch: {
     userId() {
-      this.fetchSkills()
+      this.fetchSkills(this.userId);
     }
   },
   created() {
-    this.fetchSkills()
+    this.fetchSkills(this.userId);
   },
   methods: {
-    ...mapActions(['fetchSkills', 'getUserInfo', 'logout'])
+    ...mapActions(["fetchSkills", "getUserInfo", "logout"])
   }
-}
+};
 </script>

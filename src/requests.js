@@ -10,11 +10,7 @@ axios.interceptors.response.use(
     return response;
   },
   error => {
-    // const ttl = parseInt(localStorage.getItem("ttl"));
-    // const DateNow = Math.floor(Date.now() / 1000);
     const originalRequest = error.config;
-    // console.log(DateNow);
-    // console.log(localStorage.getItem("ttl"));
 
     if (error.response.status === 401) {
       axios.post("/refreshToken").then(response => {

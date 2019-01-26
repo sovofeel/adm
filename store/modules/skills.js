@@ -28,8 +28,8 @@ const skills = {
                 commit("removeSkill", skillId);
             });
         },
-        fetchSkills({ commit, getters }) {
-            return axios.get(`/skills/86`).then(response => {
+        fetchSkills({ commit, getters }, userId) {
+            return axios.get(`/skills/${userId}`).then(response => {
                 commit("fillUpSkills", response.data);
             });
         }

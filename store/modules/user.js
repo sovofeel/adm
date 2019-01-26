@@ -2,9 +2,15 @@ import axios from 'axios'
 
 const user = {
     state: {
+        userId: 0,
         userdata: {}
     },
     mutations: {
+
+        updateUserId(state, userId) {
+            state.userId = userId;
+        }
+        ,
         fillUpUserData(state, user) {
             state.userdata = user;
         },
@@ -13,7 +19,7 @@ const user = {
         }
     },
     getters: {
-        userId: state => state.userdata.id
+        userId: state => state.userId
     },
     actions: {
         getUserInfo({ commit, state }) {
